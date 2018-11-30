@@ -17,16 +17,16 @@ class BucketItemCell: UITableViewCell
             updateCellView()
         }
     }
-
+    
+    @IBOutlet weak var bucketItemText: UILabel!
+    @IBOutlet weak var bucketItemSymbol: UILabel!
+    @IBOutlet weak var bucketItemSignature: UILabel!
+    
     override func awakeFromNib()
     {
         super.awakeFromNib()
         // Initialization code
     }
-
-    @IBOutlet weak var bucketItemText: UILabel!
-    @IBOutlet weak var bucketItemSymbol: UILabel!
-    @IBOutlet weak var bucketItemSignature: UILabel!
     
     override func setSelected(_ selected: Bool, animated: Bool)
     {
