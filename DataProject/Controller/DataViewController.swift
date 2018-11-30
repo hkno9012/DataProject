@@ -38,7 +38,7 @@ class DataViewController: UITableViewController
                 let bucketLines = input.components(separatedBy: "\n")
                 for line in bucketLines
                 {
-                    let items = line.components(separatedBy: ",")
+                    let item = line.components(separatedBy: ",")
                     items.append(BucketItem(contents: item[0], author: item[1]))
                 }
             }
@@ -53,27 +53,25 @@ class DataViewController: UITableViewController
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int
+    public override func numberOfSections(in tableView: UITableView) -> Int
     {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return bucketList.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dataIdentifier", for: indexPath) as! BucketItemCell
+        
+        cell.currentBucketItem = bucketList[indexPath.row]
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
